@@ -22,14 +22,14 @@ const Sidebar = ({ activeModule, setActiveModule }: SidebarProps) => {
           <button
             key={module.id}
             onClick={() => setActiveModule(module.id)}
-            className={`w-full text-left p-3 rounded-lg transition-all ${
+            className={`w-full text-left p-3 rounded-lg transition-all flex items-center gap-3 ${
               activeModule === module.id
-                ? 'bg-primary text-black font-semibold'
+                ? 'bg-primary text-black font-bold shadow-lg shadow-primary/50'
                 : 'hover:bg-primary/20'
             }`}
           >
-            <span className="mr-3">{module.icon}</span>
-            {module.label}
+            <span>{module.icon}</span>
+            <span>{module.label}</span>
           </button>
         ))}
       </nav>
