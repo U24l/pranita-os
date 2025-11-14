@@ -1,23 +1,22 @@
-import InventoryTable from '../components/InventoryTable'
-import { useState } from 'react'
-import ProductModal from '../components/ProductModal'
+import { useProductStore } from '../store/useProductStore'
 
 const Inventory = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { products } = useProductStore()
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-primary">Inventory</h2>
-        <button
-          className="btn-neon"
-          onClick={() => setIsModalOpen(true)}
-        >
-          + Add Product
-        </button>
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-primary mb-4">Inventory</h2>
+      <div className="grid gap-4">
+        {products.map(p => (
+          <div key={p.id} className="card-neon p-4 flex justify-between">
+            <div>
+              <p className="font-bold">{p.name}</p>
+              <p className="text-sm">Stock: <span className={p.stock <= 5 ? 'text-error' : ''}>{p.stock}</span></p>
+            </div>
+            <button className="btn-neon btn-sm">Edit</button>
+          </div>
+        ))}
       </div>
-      <InventoryTable />
-      {isModalOpen && <ProductModal onClose={() => setIsModalOpen(false)} />}
     </div>
   )
 }

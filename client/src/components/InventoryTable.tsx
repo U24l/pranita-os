@@ -1,4 +1,5 @@
-import { useProductStore, Product } from '../store/useProductStore'
+import { useProductStore } from '../store/useProductStore'
+import type { ProductItem } from '../store/useProductStore'
 import { useState } from 'react'
 
 const InventoryTable = () => {

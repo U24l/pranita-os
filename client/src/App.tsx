@@ -21,7 +21,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           {activeModule === 'dashboard' && <Dashboard />}
           {activeModule === 'inventory' && <Inventory />}
-          {/* Future: Purchases, Sales, etc. */}
+          {/* Future modules go here */}
         </div>
       </main>
     </div>
