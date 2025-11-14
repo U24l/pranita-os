@@ -6,29 +6,24 @@
   html {
     @apply bg-bgDark text-text;
   }
-  
   body {
-    @apply bg-bgDark text-text font-sans;
+    @apply bg-bgDark text-text font-sans antialiased;
   }
-  
-  /* Neon Button Base */
+}
+
+/* Custom Neon Overrides for DaisyUI */
+@layer components {
   .btn-neon {
-    @apply btn btn-primary bg-primary text-black font-bold transition-all duration-300;
+    @apply btn bg-primary text-black font-bold transition-all duration-300 hover:bg-accent hover:text-white hover:scale-105;
   }
-  
   .btn-neon:hover {
-    @apply bg-accent text-white animate-glow;
-    transform: scale(1.05);
+    @apply shadow-lg shadow-accent/50 animate-glow;
   }
   
-  /* Card Glow */
   .card-neon {
-    @apply bg-card rounded-xl shadow-lg border border-primary/20;
-    transition: all 0.3s ease;
+    @apply card bg-card rounded-xl border border-primary/20 shadow-lg p-6 transition-all duration-300;
   }
-  
   .card-neon:hover {
-    @apply shadow-xl border-primary/50;
-    transform: translateY(-2px);
+    @apply shadow-xl border-primary/50 -translate-y-1;
   }
 }
